@@ -8,11 +8,11 @@ Skoltech DL course 2025
 
 During the two weeks given to complete the homework, I tried the following methods to solve the problem:
 
-1.   EfficientNetV2 from pytorch models (see the code in Kaggle colab at the links below) - best result 0.83,
-2.   SWIN_v2 transformer from pytorch models (see the code in Kaggle colab at the links below) - best result 0.85,
-3.   ViT vit_base_patch16_224 from timm (see the code in Google colab at the links below) - best result 0.86,
-4.   NFNet nfnet_l0.ra2_in1k from timm (see the code in Kaggle colab at the links below) - best result 0.88,
-5.   ConvNeXt zoobot-encoder-convnext_tiny from zoobot (see the code in Google colab at the links below) - best result 0.89.
+1.   EfficientNetV2 from pytorch models (see the code in Kaggle colab at the links below + efficientnet_v2_m.ipynb) - best result 0.83,
+2.   SWIN_v2 transformer from pytorch models (see the code in Kaggle colab at the links below + swin_v2_t 30 epochs.ipynb) - best result 0.85,
+3.   ViT vit_base_patch16_224 from timm (see the code in Google colab at the links below + vit_transformer.ipynb) - best result 0.86,
+4.   NFNet nfnet_l0.ra2_in1k from timm (see the code in Kaggle colab at the links below + nfnet 90 epochs.ipynb) - best result 0.88,
+5.   ConvNeXt zoobot-encoder-convnext_tiny from zoobot (see the code in Google colab at the links below + final_with_text.ipynb) - best result 0.89.
 
 ## Methods
 
