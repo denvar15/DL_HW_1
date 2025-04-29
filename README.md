@@ -3,23 +3,35 @@ Skoltech DL course 2025
 
 **Suchkov Denis, Boldyrev Nikita** team
 
-# My Experiments
+# Our Experiments
+
+## Links
+
+
+*   GitHub with files for different models (if you have problems with Google and Kaggle colab please use it): https://github.com/denvar15/DL_HW_1
+*   Main Google colab notebook: https://colab.research.google.com/drive/1tHM3tqRIyt-Wl0UQlTqUja6g0EC3JKAD?usp=sharing
+*   Kaggle colab notebook: https://www.kaggle.com/code/denvar15/dl-hw-1
+*   Additional Google colab notebook (some expriments with ViT): https://colab.research.google.com/drive/1qpxi7MBe4Mhfgf0AYOP_xdSiXCO8rabo?usp=sharing
+*   Kaggle notebook (ResNet-50): https://www.kaggle.com/code/nikitaboldyrev27/galaxy10 
+*   Kaggle notebook (ResNet-50 with dropout): https://www.kaggle.com/code/nikitaboldyrev27/resnet-dropout
+*   Kaggle notebook (EfficientNet): https://www.kaggle.com/code/nikitaboldyrev27/improved-efficientnet
 
 ## Models
 
-During the two weeks given to complete the homework, I tried the following methods to solve the problem:
+During the two weeks given to complete the homework, we tried the following methods to solve the problem:
 
-1.   EfficientNetV2 from pytorch models (see the code in Kaggle colab at the links below + efficientnet_v2_m.ipynb) - best result 0.83,
-2.   SWIN_v2 transformer from pytorch models (see the code in Kaggle colab at the links below + swin_v2_t 30 epochs.ipynb) - best result 0.85,
-3.   ViT vit_base_patch16_224 from timm (see the code in Google colab at the links below + dl_hw_vit.ipynb) - best result 0.86,
-4.   NFNet nfnet_l0.ra2_in1k from timm (see the code in Kaggle colab at the links below + nfnet 90 epochs.ipynb) - best result 0.88,
-5.   ConvNeXt zoobot-encoder-convnext_tiny from zoobot (see the code in Google colab at the links below + DL_HW_1_Suchkov_Denis_Boldyrev_Nikita.ipynb) - best result 0.89.
+1.   ResNet-50 with frozen layers and dropout in head (see the code in Kaggle above) - best result 0.77 (probably aggressive dropout at first, but when decreased the situation did not change much)
+2.   EfficientNetV2 from pytorch models (see the code in Kaggle colab at the links above + efficientnet_v2_m.ipynb) - best result 0.83
+3.   SWIN_v2 transformer from pytorch models (see the code in Kaggle colab at the links above + swin_v2_t 30 epochs.ipynb) - best result 0.85
+4.   EfficientNetV2-S backbone with a custom classifier head that includes dropout regularization (see the code in Kaggle colab at the links above) - best result 0.86
+5.   ViT vit_base_patch32_224 from timm (see the code in Google colab at the links above + dl_hw_vit.ipynb) - best result 0.86
+6.   NFNet nfnet_l0.ra2_in1k from timm (see the code in Kaggle colab at the links above  + nfnet 90 epochs.ipynb) - best result 0.88
+7.   ResNet-50 with early stopping and reducing learning rate (see the code in Kaggle above) - best result 0.88
+8.   ConvNeXt zoobot-encoder-convnext_tiny from zoobot (see the code in Google colab at the links above + DL_HW_1_Suchkov_Denis_Boldyrev_Nikita.ipynb) - best result 0.89
 
 ## Methods
 
-For these networks, I used the following methods to combat overfitting and improve finetuning:
-
-
+For these networks, we used the following methods to fix overfitting and improve finetuning:
 
 1.   A classifier head with not just a linear output for 10 classes, but with nonlinearity and Dropout to improve classification (see the code in Google and Kaggle colab at the links below),
 2.   Used different Dropout values ​​in the improved head and the last layers of the networks (see the code in Kaggle colab at the links below),
@@ -33,8 +45,6 @@ For these networks, I used the following methods to combat overfitting and impro
 10.  Used CosineAnnealingLR to improve the convergence of the optimizer and avoid hitting a local minimum (see code in Google and Kaggle colab at the links below).
 
 ## Code snippets for methods
-
-
 
 1. 
         model.head = nn.Sequential(
@@ -166,14 +176,5 @@ For these networks, I used the following methods to combat overfitting and impro
           criterion = nn.CrossEntropyLoss(label_smoothing=0.2)
 10.
           scheduler = CosineAnnealingLR(optimizer, T_max=EPOCHS_FINETUNE)
-
-
-## Links
-
-
-
-*   Main Google colab notebook: https://colab.research.google.com/drive/1tHM3tqRIyt-Wl0UQlTqUja6g0EC3JKAD?usp=sharing
-*   Kaggle colab notebook: https://www.kaggle.com/code/denvar15/dl-hw-1
-*   Additional Google colab notebook (some expriments with ViT): https://colab.research.google.com/drive/1qpxi7MBe4Mhfgf0AYOP_xdSiXCO8rabo?usp=sharing
 
 
