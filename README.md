@@ -1,6 +1,7 @@
 # DL_HW_1
 Skoltech DL course 2025
 
+**Suchkov Denis, Boldyrev Nikita** team
 
 # My Experiments
 
